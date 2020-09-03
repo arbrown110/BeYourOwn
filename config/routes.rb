@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get '/' => 'session#index'
   get '/login' => 'session#new'
   get '/signup', to: 'users#new', as: 'register'
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :users
+  resources :pages
   resources :contacts
   
   root to: 'user#new'
