@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   
-  get '/' => 'session#index'
-  get '/login' => 'session#new'
-  get '/signup', to: 'users#new', as: 'register'
+  get '/signup' => 'users#new' 
   post '/signup' => 'users#create'
 
 
@@ -10,7 +8,7 @@ Rails.application.routes.draw do
   resources :pages
   resources :contacts
   
-  root to: 'user#new'
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
