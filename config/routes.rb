@@ -12,12 +12,20 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
 
-  resources :users
-  resources :pages
+  resources :users do
+    resources :pages, only:[:new,:create,:index]
+  end
+  resources :pages do
+    resources :contacts, only:[:new,:create,:index]
+  end
   resources :contacts
 
 
+#nested routes
+#new, show , or index
+'/users/:id/contacts'
 
+'/pages/:id/contacts'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
