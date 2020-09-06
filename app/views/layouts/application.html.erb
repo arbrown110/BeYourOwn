@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BeYourOwn</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#mySidenav a {
+  position: absolute;
+  left: -80px;
+  transition: 0.3s;
+  padding: 15px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffe01a;
+  border-radius: 0 5px 5px 0;
+}
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+#mySidenav a:hover {
+  left: 0;
+}
 
-  <body>
+#about {
+  top: 20px;
+  background-color: #555;
+}
+
+#blog {
+  top: 80px;
+  background-color: #555;
+}
+
+#projects {
+  top: 140px;
+  background-color: #555 ;
+}
+
+#contact {
+  top: 200px;
+  background-color: #555
+}
+</style>
+</head>
+<body>
+
+
+    <div id="mySidenav" class="sidenav">
+  <% if logged_in? %>
+  <a href="#" id="Login">Profile</a>
+  <a href="#" id="blog">Connects</a>
+  <a href="#" id="projects">Mailing list</a>
+  <a href="#" id="Logout">Logout</a>
+  <% else %>
+  <a href="#" id="Sign up">Sign up</a>
+  <a href="#" id="Login">Login</a>
+  <% end %>
+</div>
+
+
+
+
+
     <%= yield %>
   </body>
 </html>

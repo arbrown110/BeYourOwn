@@ -1,0 +1,24 @@
+Creating landing page 
+
+SEE NaME or Business NaME
+
+picture or video  
+
+-> side middle -->  discuptions
+-> to side -> social media
+
+^ under picture /video Sign up or mailing list^
+
+
+<%= form_for (@post) do |u| %>
+<%= u.label :name %>
+<%= u.text_field :name %>
+<br>
+<br>
+<%= u.label :information %>
+<%= u.text_field :information %>
+<br><br>
+
+<%= u.submit 'Submit' %>
+
+<% end %>
