@@ -1,1 +1,11 @@
 All landing pages
+
+<h1> Find your Plug and Connect</h1>
+
+<%= @page.name.each do |n| %>
+<li><strong><%= n.user.username %></strong> <%= link_to c.name, pages_path(n)%> </li>
+
+<% end %>
+
+
+

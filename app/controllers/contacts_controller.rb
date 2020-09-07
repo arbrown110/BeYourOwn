@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
  def index
   if params[:page_id] && @page = Page.find_by_id(params[:page_id])
     @contacts = @page.contacts
-  else  
+  else 
     @contact = Contact.all
  end
 

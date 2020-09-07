@@ -3,62 +3,96 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-#mySidenav a {
-  position: absolute;
-  left: -80px;
-  transition: 0.3s;
-  padding: 15px;
-  width: 100px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #ffe01a;
-  border-radius: 0 5px 5px 0;
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
 }
 
-#mySidenav a:hover {
-  left: 0;
-}
-
-#about {
-  top: 20px;
+/* Style tab links */
+.tablink {
   background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
 }
 
-#blog {
-  top: 80px;
-  background-color: #555;
+.tablink:hover {
+  background-color: #777;
 }
 
-#projects {
-  top: 140px;
-  background-color: #555 ;
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
 }
 
-#contact {
-  top: 200px;
-  background-color: #555
-}
+#Home {background-color: red;}
+#Pages {background-color: green;}
+#Connects {background-color: blue;}
+#About {background-color: orange;}
 </style>
 </head>
 <body>
+<% if logged_in? %>
+ <button class="tablink" onclick="openPage('Home', this, 'red')">Home</button>
+ <button class="tablink" onclick="openPage('Pages', this, 'green')" id="defaultOpen">Find a plug</button>
+ <button class="tablink" onclick="openPage('Connects', this, 'blue')">Connects</button>
+ <button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
+<% else %>
+ <button class="tablink" onclick="openPage('Login', this, 'red')">Login</button>
+ <button class="tablink" onclick="openPage('Sign Up', this, 'red')">Sign Up</button>
+<%end %>
 
+<div id="Home" class="tabcontent">
 
-    <div id="mySidenav" class="sidenav">
-  <% if logged_in? %>
-  <a href="#" id="Login">Profile</a>
-  <a href="#" id="blog">Connects</a>
-  <a href="#" id="projects">Mailing list</a>
-  <a href="#" id="Logout">Logout</a>
-  <% else %>
-  <a href="#" id="Sign up">Sign up</a>
-  <a href="#" id="Login">Login</a>
-  <% end %>
+  <h3>Home</h3>
+  <p>Home is where the heart is..</p>
 </div>
 
+<div id="Pages" class="tabcontent">
+  <h3>Connects</h3>
+  <p>Some news this fine day!</p> 
+</div>
 
+<div id="Connects" class="tabcontent">
+  <h3>Mailing lists</h3>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
 
+<div id="About" class="tabcontent">
+  <h3>About</h3>
+  <p>Who we are and what we do.</p>
+</div>
 
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
 
-    <%= yield %>
-  </body>
-</html>
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
