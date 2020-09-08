@@ -10,6 +10,17 @@ Rails.application.routes.draw do
   
   #logout route
   delete '/logout' => 'sessions#destroy'
+ 
+  #user  routes
+
+
+
+
+
+  #contact route
+  
+  get	'/contacts/:id' => 'contacts#update'
+  patch '/contacts/:id', to: 'contacts#update'
 
 
   resources :users do
@@ -18,8 +29,9 @@ Rails.application.routes.draw do
   resources :pages do
     resources :contacts, only:[:new,:create,:index]
   end
-  resources :contacts
-
+  resources :contact do
+    resources :contacts, only: [:index, :show, :new, :create, :edit, :update]
+  end
 
 #nested routes
 #new, show , or index

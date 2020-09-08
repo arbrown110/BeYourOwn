@@ -1,0 +1,17 @@
+<h1>edit Contact</h1>
+
+<%= form_for (@post) do |u| %>
+<%= u.label :name %>
+<%= u.text_field :name %>
+<br>
+<br>
+<%= u.label :number %>
+<%= u.telephone_field :number %>
+<br><br>
+<%= u.label :email %>
+<%= u.email_field :email, required: true  %>
+<br>
+<br>
+<%= u.submit 'Submit' %>
+<%= %>
+<% end %>

@@ -44,8 +44,10 @@ class SessionsController < ApplicationController
         redirect_to root_path
       end
     end  
+  
     def new
     end
+   
     private
 
     def session_params

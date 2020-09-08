@@ -4,10 +4,15 @@ class ContactsController < ApplicationController
   if params[:page_id] && @page = Page.find_by_id(params[:page_id])
     @contacts = @page.contacts
   else 
+    #place error message
     @contact = Contact.all
  end
 
  def new
+  if params[:page_id] && @page = Page.find_by_id(params[:page_id])
+    @contacts = @page.contacts.build
+  else
+    #place error message
   @contact = Contact.new
  end
 
