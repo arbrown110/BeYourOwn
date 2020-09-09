@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
     @contacts = @page.contacts
   else 
     #place error message
-    @contact = Contact.all
+    @contact = Contact.alpha
  end
 
  def new

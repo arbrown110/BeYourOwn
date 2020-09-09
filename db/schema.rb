@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_09_03_232033) do
   create_table "pages", force: :cascade do |t|
     t.string "name"
     t.text "information"
+    t.string "photo"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

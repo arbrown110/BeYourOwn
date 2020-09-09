@@ -11,14 +11,17 @@ Rails.application.routes.draw do
   #logout route
   delete '/logout' => 'sessions#destroy'
  
-  #user  routes
+  #OMNI/AUTH CALLBACK ROUTE
+
+  get '/auth/google_oauth2/callback' do => 'session#google'
+  
 
 
 
 
 
   #contact route
-  
+
   get	'/contacts/:id' => 'contacts#update'
   patch '/contacts/:id', to: 'contacts#update'
 
