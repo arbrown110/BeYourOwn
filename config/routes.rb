@@ -13,7 +13,7 @@ Rails.application.routes.draw do
  
   #OMNI/AUTH CALLBACK ROUTE
 
-  get '/auth/google_oauth2/callback' do => 'session#google'
+  get '/auth/google_oauth2/callback' => 'sessions#google'
   
 
 

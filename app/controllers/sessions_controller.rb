@@ -20,10 +20,10 @@ class SessionsController < ApplicationController
     end
 
     def google
-     @user = User.find_or_create_by(:email auth['info']['email']) do |user|
+        @user = User.find_or_create_by(:email auth['info']['email']) do |user|
         user.username= auth['info']['first_name']
         user.password= SecureRandom.hex(16)
-     end
+
         if @user.save
          session[:user_id] = @user.id
          redirect_to user_path(@user)
@@ -43,12 +43,6 @@ class SessionsController < ApplicationController
     end
    
     private
-
-    def session_params
-      params.require(:session).permit(:username, :real_name, :email, :password,
-                                      :password_confirmation, :github_uid, :github_profile_url,
-                                      :company, :bio, :avatar_url, :communication_method)
-    end
   
     def auth
       request.env['omniauth.auth']
