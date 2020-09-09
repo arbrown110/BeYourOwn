@@ -8,9 +8,9 @@ picture or video
 -> to side -> social media
 
 ^ under picture /video Sign up or mailing list^
+<%= render partial: "layout/errors", locals: {object: @page} %>
 
-
-<%= form_for (@post) do |u| %>
+<%= form_for (@page) do |u| %>
 <%= u.label :name %>
 <%= u.text_field :name %>
 <br>
@@ -18,6 +18,10 @@ picture or video
 <%= u.label :information %>
 <%= u.text_field :information %>
 <br><br>
+<%= u.label :information %>
+<%= u.text_field :information %>
+<br>
+<br>
 
 <%= u.submit 'Submit' %>
 

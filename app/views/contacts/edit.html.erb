@@ -1,5 +1,8 @@
 <h1>edit Contact</h1>
 
+<%= render partial: "layout/errors", locals: {object: @contact} %>
+
+
 <%= form_for (@post) do |u| %>
 <%= u.label :name %>
 <%= u.text_field :name %>
